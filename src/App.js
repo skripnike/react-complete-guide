@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import './App.css';
 import Person from './Person/Person';
+import logo from './kiwi.svg';
 
 class App extends Component {
   state = {
@@ -39,8 +40,8 @@ class App extends Component {
   }
 
   render() {
-    const styleBtn = {
-      backgroundColor: '#fff',
+    let styleBtn = {
+      backgroundColor: 'lightgreen',
       font: 'inherit',
       border: '1px solid lightblue',
       padding: '8px',
@@ -62,12 +63,26 @@ class App extends Component {
           })}
         </div>
       );
+
+      styleBtn.backgroundColor = 'darkred';
+      styleBtn.color = '#fff';
+    }
+
+    let btnClasses = [];
+    if (this.state.persons.length <= 2) {
+      btnClasses.push('red'); // ["red"]
+    }
+    if (this.state.persons.length <= 1) {
+      btnClasses.push('bold'); // ["red", "bold"]
     }
 
     return (
       <div className="App">
+        serviceWorker: {('serviceWorker' in navigator) ? 'true' : 'false'}
+        <img src={logo} alt="Logo" width="150" />
+        <div className="Logo" />
         <h1>Hi, I'm a React App</h1>
-        <p>This is really working!</p>
+        <p className={btnClasses.join(' ')}>This is really working!</p>
         <button
           onClick={this.togglePersonsHandler}
           style={styleBtn}>Toggle Persons</button>

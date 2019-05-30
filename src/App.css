@@ -1,3 +1,18 @@
 .App {
   text-align: center;
 }
+
+.Logo {
+  background-image: url('./kiwi.svg');
+  background-size: contain;
+  height: 150px;
+  width: 150px;
+}
+
+.red {
+  color: darkred;
+}
+
+.bold {
+  font-weight: bold;
+}
