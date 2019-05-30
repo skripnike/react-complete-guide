@@ -11,7 +11,7 @@ class App extends Component {
       { id: '3', name: 'Stephanie', age: 26 }
     ],
     otherState: 'some other value',
-    showPersons: true
+    showPersons: false
   }
 
   nameChangeHandler = (event, id) => {
@@ -45,7 +45,11 @@ class App extends Component {
       font: 'inherit',
       border: '1px solid lightblue',
       padding: '8px',
-      cursor: 'pointer'
+      cursor: 'pointer',
+      // ':hover': {
+      //   backgroundColor: 'darkgreen',
+      //   color: 'yellow'
+      // }
     }
 
     let persons = null;
@@ -66,27 +70,32 @@ class App extends Component {
 
       styleBtn.backgroundColor = 'darkred';
       styleBtn.color = '#fff';
+      // styleBtn[':hover'] = {
+      //   backgroundColor: 'gray',
+      //   color: 'black'
+      // };
     }
 
     let btnClasses = [];
     if (this.state.persons.length <= 2) {
-      btnClasses.push('red'); // ["red"]
+      btnClasses.push('underlined'); // ["underlined"]
+      btnClasses.push('red'); // ["underlined", "red"]
     }
     if (this.state.persons.length <= 1) {
-      btnClasses.push('bold'); // ["red", "bold"]
+      btnClasses.push('bold'); // ["underlined", "red", "bold"]
     }
 
     return (
       <div className="App">
-        serviceWorker: {('serviceWorker' in navigator) ? 'true' : 'false'}
-        <img src={logo} alt="Logo" width="150" />
-        <div className="Logo" />
-        <h1>Hi, I'm a React App</h1>
-        <p className={btnClasses.join(' ')}>This is really working!</p>
-        <button
-          onClick={this.togglePersonsHandler}
-          style={styleBtn}>Toggle Persons</button>
-        {persons}
+          serviceWorker: {('serviceWorker' in navigator) ? 'true' : 'false'}
+          <img src={logo} alt="Logo" width="150" />
+          <div className="Logo" />
+          <h1>Hi, I'm a React App</h1>
+          <p className={btnClasses.join(' ')}>This is really working!</p>
+          <button
+            onClick={this.togglePersonsHandler}
+            style={styleBtn}>Toggle Persons</button>
+          {persons}
       </div>
     );
 
