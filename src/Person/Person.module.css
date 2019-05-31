@@ -8,10 +8,9 @@
   text-align: center;
 }
 
-
 .Person:hover {
-   background: darkgreen;
-   color: yellow;
+  background: darkgreen;
+  color: yellow;
 }
 
 @media (min-width: 500px) {
