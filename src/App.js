@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import './App.css';
+import classes from './App.module.css';
 import Person from './Person/Person';
 import logo from './kiwi.svg';
 
@@ -41,16 +41,12 @@ class App extends Component {
 
   render() {
     let styleBtn = {
-      backgroundColor: 'lightgreen',
+      // backgroundColor: 'lightgreen',
       font: 'inherit',
-      border: '1px solid lightblue',
       padding: '8px',
       cursor: 'pointer',
-      // ':hover': {
-      //   backgroundColor: 'darkgreen',
-      //   color: 'yellow'
-      // }
     }
+    let btnClass = '';
 
     let persons = null;
 
@@ -68,31 +64,28 @@ class App extends Component {
         </div>
       );
 
-      styleBtn.backgroundColor = 'darkred';
       styleBtn.color = '#fff';
-      // styleBtn[':hover'] = {
-      //   backgroundColor: 'gray',
-      //   color: 'black'
-      // };
+      btnClass = classes.red;
     }
 
     let btnClasses = [];
     if (this.state.persons.length <= 2) {
-      btnClasses.push('underlined'); // ["underlined"]
-      btnClasses.push('red'); // ["underlined", "red"]
+      btnClasses.push(classes.underlined); // ["underlined"]
+      btnClasses.push(classes.red); // ["underlined", "red"]
     }
     if (this.state.persons.length <= 1) {
-      btnClasses.push('bold'); // ["underlined", "red", "bold"]
+      btnClasses.push(classes.bold); // ["underlined", "red", "bold"]
     }
 
     return (
-      <div className="App">
+      <div className={classes.App}>
           serviceWorker: {('serviceWorker' in navigator) ? 'true' : 'false'}
           <img src={logo} alt="Logo" width="150" />
-          <div className="Logo" />
+          <div className={classes.Logo} />
           <h1>Hi, I'm a React App</h1>
           <p className={btnClasses.join(' ')}>This is really working!</p>
           <button
+            className={btnClass}
             onClick={this.togglePersonsHandler}
             style={styleBtn}>Toggle Persons</button>
           {persons}
