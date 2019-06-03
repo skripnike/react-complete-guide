@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import classes from './App.module.css';
 import Person from './Person/Person';
 import logo from './kiwi.svg';
+import ErrorBoundary from './ErrorBoundary/ErrorBoundary';
 
 class App extends Component {
   state = {
@@ -55,13 +56,14 @@ class App extends Component {
         <div>
           {this.state.persons.map((person, index) => {
             return (
-              <Person
-                click={() => this.deletePersonHandler(index)}
-                name={person.name}
-                age={person.age}
-                key={person.id}
-                changed={(event) => this.nameChangeHandler(event, person.id)}
-              />
+              <ErrorBoundary key={person.id}>
+                <Person
+                  click={() => this.deletePersonHandler(index)}
+                  name={person.name}
+                  age={person.age}
+                  changed={(event) => this.nameChangeHandler(event, person.id)}
+                />
+              </ErrorBoundary>
             );
           })}
         </div>
@@ -83,8 +85,15 @@ class App extends Component {
     return (
       <div className={classes.App}>
         serviceWorker: {'serviceWorker' in navigator ? 'true' : 'false'}
-        <img src={logo} alt='Logo' width='150' />
-        <div className={classes.Logo} />
+        img:
+        <img src={logo} alt='Logo' width='150' height='123' />
+        div:
+        <div
+          className={classes.Logo}
+          style={{
+            display: 'inline-block',
+          }}
+        />
         <h1>Hi, I'm a React App</h1>
         <p className={btnClasses.join(' ')}>This is really working!</p>
         <button
