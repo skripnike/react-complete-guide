@@ -1,7 +1,8 @@
 import React, { Component } from 'react';
 import classes from './App.module.css';
 import Person from './Person/Person';
-import logo from './kiwi.svg';
+import svgKiwi from './kiwi.svg';
+import Logo from './Logo/Logo';
 
 class App extends Component {
   state = {
@@ -59,6 +60,7 @@ class App extends Component {
                 click={() => this.deletePersonHandler(index)}
                 name={person.name}
                 age={person.age}
+                key={person.id}
                 changed={(event) => this.nameChangeHandler(event, person.id)}
               />
             );
@@ -83,7 +85,7 @@ class App extends Component {
       <div className={classes.App}>
         serviceWorker: {'serviceWorker' in navigator ? 'true' : 'false'}
         img:
-        <img src={logo} alt='Logo' width='150' height='123' />
+        <img src={svgKiwi} alt='Logo' width='150' height='123' />
         div:
         <div
           className={classes.Logo}
@@ -91,6 +93,7 @@ class App extends Component {
             display: 'inline-block',
           }}
         />
+        <Logo />
         <h1>Hi, I'm a React App</h1>
         <p className={btnClasses.join(' ')}>This is really working!</p>
         <button
