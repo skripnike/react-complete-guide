@@ -6,11 +6,6 @@ const person = (props) => {
     backgroundColor: 'gray',
   };
 
-  const rnd = Math.random();
-  if (rnd > 0.5) {
-    throw new Error('Smth went wrong...');
-  }
-
   return (
     <div className={classes.Person} style={stylePerson}>
       <p>
