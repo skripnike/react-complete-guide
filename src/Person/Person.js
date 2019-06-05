@@ -1,19 +1,19 @@
 import React from 'react';
 import classes from './Person.module.css';
 
-const person = (props) => {
+const person = props => {
   let stylePerson = {
-    backgroundColor: 'gray',
+    backgroundColor: 'gray'
   };
 
   return (
     <div className={classes.Person} style={stylePerson}>
       <p>
-        <button onClick={props.click}>X</button> I'm {props.name} and I'm{' '}
+        <button onClick={props.click}>X</button> I'm {props.name} and I&rsquo;m{' '}
         {props.age} years old!
       </p>
       <p>{props.children}</p>
-      <input type='text' onChange={props.changed} value={props.name} />
+      <input type="text" onChange={props.changed} value={props.name} />
     </div>
   );
 };

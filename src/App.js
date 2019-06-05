@@ -2,21 +2,20 @@ import React, { Component } from 'react';
 import classes from './App.module.css';
 import Person from './Person/Person';
 import svgKiwi from './kiwi.svg';
-import Logo from './Logo/Logo';
 
 class App extends Component {
   state = {
     persons: [
       { id: '1', name: 'Max', age: 28 },
       { id: '2', name: 'Manu', age: 29 },
-      { id: '3', name: 'Stephanie', age: 26 },
+      { id: '3', name: 'Stephanie', age: 26 }
     ],
     otherState: 'some other value',
-    showPersons: false,
+    showPersons: false
   };
 
   nameChangeHandler = (event, id) => {
-    const personIndex = this.state.persons.findIndex((p) => {
+    const personIndex = this.state.persons.findIndex(p => {
       return p.id === id;
     });
 
@@ -29,7 +28,7 @@ class App extends Component {
     this.setState({ persons: persons });
   };
 
-  deletePersonHandler = (personIndex) => {
+  deletePersonHandler = personIndex => {
     const persons = [...this.state.persons];
     persons.splice(personIndex, 1);
     this.setState({ persons: persons });
@@ -45,7 +44,7 @@ class App extends Component {
       // backgroundColor: 'lightgreen',
       font: 'inherit',
       padding: '8px',
-      cursor: 'pointer',
+      cursor: 'pointer'
     };
     let btnClass = '';
 
@@ -61,7 +60,7 @@ class App extends Component {
                 name={person.name}
                 age={person.age}
                 key={person.id}
-                changed={(event) => this.nameChangeHandler(event, person.id)}
+                changed={event => this.nameChangeHandler(event, person.id)}
               />
             );
           })}
@@ -84,16 +83,16 @@ class App extends Component {
     return (
       <div className={classes.App}>
         serviceWorker: {'serviceWorker' in navigator ? 'true' : 'false'}
+        <br />
         img:
-        <img src={svgKiwi} alt='Logo' width='150' height='123' />
+        <img src={svgKiwi} alt="I&rsquo;m a logo" width="150" height="123" />
         div:
         <div
           className={classes.Logo}
           style={{
-            display: 'inline-block',
+            display: 'inline-block'
           }}
         />
-        <Logo />
         <h1>Hi, I'm a React App</h1>
         <p className={btnClasses.join(' ')}>This is really working!</p>
         <button
