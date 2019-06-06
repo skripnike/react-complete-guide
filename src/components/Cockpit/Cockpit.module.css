@@ -1,0 +1,7 @@
+.Logo {
+  background-image: url('assets/img/kiwi.svg');
+  background-size: contain;
+  display: inline-block;
+  height: 123px;
+  width: 150px;
+}

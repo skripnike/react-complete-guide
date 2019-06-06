@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import classes from './App.module.css';
-import svgKiwi from 'assets/img/kiwi.svg';
-import Person from 'components/Persons/Person/Person';
+import Cockpit from 'components/Cockpit/Cockpit';
+import Persons from 'components/Persons/Persons';
 
 class App extends Component {
   state = {
@@ -40,68 +40,45 @@ class App extends Component {
   };
 
   render() {
-    let styleBtn = {
+    let btnStyle = {
       // backgroundColor: 'lightgreen',
       font: 'inherit',
       padding: '8px',
       cursor: 'pointer'
     };
     let btnClass = '';
-
     let persons = null;
 
     if (this.state.showPersons) {
       persons = (
-        <div>
-          {this.state.persons.map((person, index) => {
-            return (
-              <Person
-                click={() => this.deletePersonHandler(index)}
-                name={person.name}
-                age={person.age}
-                key={person.id}
-                changed={(event) => this.nameChangeHandler(event, person.id)}
-              />
-            );
-          })}
-        </div>
+        <Persons
+          persons={this.state.persons}
+          clicked={this.deletePersonHandler}
+          changed={this.nameChangeHandler}
+        />
       );
 
-      styleBtn.color = '#fff';
+      btnStyle.color = '#fff';
       btnClass = classes.red;
     }
 
-    let btnClasses = [];
+    let paragraphClasses = [];
     if (this.state.persons.length <= 2) {
-      btnClasses.push(classes.underlined); // ["underlined"]
-      btnClasses.push(classes.red); // ["underlined", "red"]
+      paragraphClasses.push(classes.underlined); // ["underlined"]
+      paragraphClasses.push(classes.red); // ["underlined", "red"]
     }
     if (this.state.persons.length <= 1) {
-      btnClasses.push(classes.bold); // ["underlined", "red", "bold"]
+      paragraphClasses.push(classes.bold); // ["underlined", "red", "bold"]
     }
 
     return (
       <div className={classes.App}>
-        serviceWorker: {'serviceWorker' in navigator ? 'true' : 'false'}
-        <br />
-        img:
-        <img src={svgKiwi} alt="I&rsquo;m a logo" width="150" height="123" />
-        div:
-        <div
-          className={classes.Logo}
-          style={{
-            display: 'inline-block'
-          }}
+        <Cockpit
+          paragraphClasses={paragraphClasses}
+          btnClass={btnClass}
+          btnStyle={btnStyle}
+          clicked={this.togglePersonsHandler}
         />
-        <h1>Hi, I'm a React App</h1>
-        <p className={btnClasses.join(' ')}>This is really working!</p>
-        <button
-          className={btnClass}
-          onClick={this.togglePersonsHandler}
-          style={styleBtn}
-        >
-          Toggle Persons
-        </button>
         {persons}
       </div>
     );

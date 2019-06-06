@@ -12,13 +12,6 @@
   background: salmon;
 }
 
-.Logo {
-  background-image: url('assets/img/kiwi.svg');
-  background-size: contain;
-  height: 123px;
-  width: 150px;
-}
-
 .red {
   composes: Red from 'assets/cssmodules/appearance.module.css';
 }
