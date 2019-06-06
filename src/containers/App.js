@@ -40,15 +40,7 @@ class App extends Component {
   };
 
   render() {
-    let btnStyle = {
-      // backgroundColor: 'lightgreen',
-      font: 'inherit',
-      padding: '8px',
-      cursor: 'pointer'
-    };
-    let btnClass = '';
     let persons = null;
-
     if (this.state.showPersons) {
       persons = (
         <Persons
@@ -57,27 +49,14 @@ class App extends Component {
           changed={this.nameChangeHandler}
         />
       );
-
-      btnStyle.color = '#fff';
-      btnClass = classes.red;
-    }
-
-    let paragraphClasses = [];
-    if (this.state.persons.length <= 2) {
-      paragraphClasses.push(classes.underlined); // ["underlined"]
-      paragraphClasses.push(classes.red); // ["underlined", "red"]
-    }
-    if (this.state.persons.length <= 1) {
-      paragraphClasses.push(classes.bold); // ["underlined", "red", "bold"]
     }
 
     return (
       <div className={classes.App}>
         <Cockpit
-          paragraphClasses={paragraphClasses}
-          btnClass={btnClass}
-          btnStyle={btnStyle}
+          togglePersons={this.state.showPersons}
           clicked={this.togglePersonsHandler}
+          personsLength={this.state.persons.length}
         />
         {persons}
       </div>

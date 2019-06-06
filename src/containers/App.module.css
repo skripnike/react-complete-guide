@@ -2,16 +2,6 @@
   text-align: center;
 }
 
-.App button {
-  background: darkred;
-}
-.App button.red {
-  border: solid 3px red;
-}
-.App button.red:hover {
-  background: salmon;
-}
-
 .red {
   composes: Red from 'assets/cssmodules/appearance.module.css';
 }

@@ -1,7 +1,28 @@
+.Cockpit button {
+  background: darkred;
+}
+.Cockpit button.red {
+  border: solid 3px red;
+}
+.Cockpit button.red:hover {
+  background: salmon;
+}
 .Logo {
   background-image: url('assets/img/kiwi.svg');
   background-size: contain;
   display: inline-block;
   height: 123px;
   width: 150px;
+}
+
+.red {
+  composes: Red from 'assets/cssmodules/appearance.module.css';
+}
+
+.bold {
+  composes: Bold from 'assets/cssmodules/appearance.module.css';
+}
+
+.underlined {
+  composes: Underlined from 'assets/cssmodules/appearance.module.css';
 }
