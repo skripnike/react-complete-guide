@@ -20,13 +20,13 @@
 }
 
 .red {
-  color: darkred;
+  composes: Red from 'assets/cssmodules/appearance.module.css';
 }
 
 .bold {
-  font-weight: bold;
+  composes: Bold from 'assets/cssmodules/appearance.module.css';
 }
 
 .underlined {
-  text-decoration: underline;
+  composes: Underlined from 'assets/cssmodules/appearance.module.css';
 }
