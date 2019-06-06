@@ -1,5 +1,5 @@
 .Person {
-  composes: red bold from '../App.module.css';
+  composes: red bold from 'containers/App.module.css';
   width: 60%;
   margin: auto;
   border: 1px solid #eee;

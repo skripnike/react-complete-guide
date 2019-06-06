@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import classes from './App.module.css';
-import Person from './Person/Person';
-import svgKiwi from './kiwi.svg';
+import svgKiwi from 'assets/img/kiwi.svg';
+import Person from 'components/Persons/Person/Person';
 
 class App extends Component {
   state = {
@@ -15,7 +15,7 @@ class App extends Component {
   };
 
   nameChangeHandler = (event, id) => {
-    const personIndex = this.state.persons.findIndex(p => {
+    const personIndex = this.state.persons.findIndex((p) => {
       return p.id === id;
     });
 
@@ -28,7 +28,7 @@ class App extends Component {
     this.setState({ persons: persons });
   };
 
-  deletePersonHandler = personIndex => {
+  deletePersonHandler = (personIndex) => {
     const persons = [...this.state.persons];
     persons.splice(personIndex, 1);
     this.setState({ persons: persons });
@@ -60,7 +60,7 @@ class App extends Component {
                 name={person.name}
                 age={person.age}
                 key={person.id}
-                changed={event => this.nameChangeHandler(event, person.id)}
+                changed={(event) => this.nameChangeHandler(event, person.id)}
               />
             );
           })}

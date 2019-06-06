@@ -1,7 +1,7 @@
 import React from 'react';
 import classes from './Person.module.css';
 
-const person = props => {
+const Person = (props) => {
   let stylePerson = {
     backgroundColor: 'gray'
   };
@@ -18,4 +18,4 @@ const person = props => {
   );
 };
 
-export default person;
+export default Person;

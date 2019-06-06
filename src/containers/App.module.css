@@ -13,7 +13,7 @@
 }
 
 .Logo {
-  background-image: url('./kiwi.svg');
+  background-image: url('assets/img/kiwi.svg');
   background-size: contain;
   height: 123px;
   width: 150px;
