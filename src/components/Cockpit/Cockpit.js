@@ -31,7 +31,7 @@ const Cockpit = (props) => {
       <img src={svgKiwi} alt="I&rsquo;m a logo" width="150" height="123" />
       div:
       <div className={classes.Logo} />
-      <h1>Hi, I'm a React App</h1>
+      <h1>{props.title}</h1>
       <p className={paragraphClasses.join(' ')}>This is really working!</p>
       <button className={btnClass} style={btnStyle} onClick={props.clicked}>
         Toggle Persons
