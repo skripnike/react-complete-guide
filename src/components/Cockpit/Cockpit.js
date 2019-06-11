@@ -2,7 +2,7 @@ import React from 'react';
 import classes from './Cockpit.module.css';
 import svgKiwi from 'assets/img/kiwi.svg';
 
-const Cockpit = (props) => {
+const cockpit = (props) => {
   let btnStyle = {
     font: 'inherit',
     padding: '8px',
@@ -40,4 +40,4 @@ const Cockpit = (props) => {
   );
 };
 
-export default Cockpit;
+export default cockpit;
