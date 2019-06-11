@@ -5,6 +5,7 @@ const Person = (props) => {
   let stylePerson = {
     backgroundColor: 'gray'
   };
+  console.log('[Person.js] rendering...');
 
   return (
     <div className={classes.Person} style={stylePerson}>
